@@ -6,16 +6,13 @@ const dataService = {};
 dataService.import = (payload = {}) => {
   return new Promise((resolve, reject) => {
     return axios
-      .post(
-        `${consts.API_URL}/import`, 
-        payload,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        })
+      .post(`${consts.API_URL}/import`, payload, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((response) => {
-        resolve(response.data); 
+        resolve(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -29,12 +26,9 @@ dataService.import = (payload = {}) => {
 dataService.fetchData = (payload = {}) => {
   return new Promise((resolve, reject) => {
     return axios
-      .post(
-        `${consts.API_URL}/fetch`, 
-        payload
-      )
+      .post(`${consts.API_URL}/fetch`, payload)
       .then((response) => {
-        resolve(response.data); 
+        resolve(response.data);
       })
       .catch((err) => {
         console.log(err);
